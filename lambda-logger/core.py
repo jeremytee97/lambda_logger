@@ -34,7 +34,7 @@ sentry_sdk.init(
 set_tag("project", os.environ["PROJECT_NAME"])
 set_tag("fn_name", os.environ["FN_NAME"])
 
-logger = Logger(level="INFO")
+logger = Logger(service=os.environ["FN_NAME"], level="INFO")
 
 # Logging an exception
 def capture_error(error, method, context=None):
