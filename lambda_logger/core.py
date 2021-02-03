@@ -24,7 +24,6 @@ def before_send(event, hint):
         event['fingerprint'] = ['list-error-messages']
     return event
 
-
 sentry_sdk.init(
         dsn=os.environ["SENTRY_DSN"],
         environment=os.environ["SERVERLESS_STAGE"],
