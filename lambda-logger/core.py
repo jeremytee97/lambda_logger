@@ -3,7 +3,7 @@
 __all__ = ['before_send', 'capture_error', 'logger']
 
 # Cell
-from sentry_sdk import configure_scope, capture_event, capture_exception, set_tag
+from sentry_sdk import configure_scope, capture_exception, set_tag
 from sentry_sdk.integrations.aws_lambda import AwsLambdaIntegration
 from aws_lambda_powertools import Logger
 
@@ -35,6 +35,7 @@ set_tag("project", os.environ["PROJECT_NAME"])
 set_tag("fn_name", os.environ["FN_NAME"])
 
 logger = Logger(service=os.environ["FN_NAME"], level="INFO")
+
 
 # Logging an exception
 def capture_error(error, method, context=None):
